@@ -1,0 +1,33 @@
+fungsi tambah(a, b):
+    kembali a + b
+
+fungsi kurang(a, b):
+    kembali a - b
+
+fungsi kali(a, b):
+    kembali a * b
+
+fungsi bagi(a, b):
+    jika b == 0:
+        cetak("Tidak bisa dibagi dengan nol!")
+        kembali 0
+    kembali a / b
+
+jika nama_utama:
+    cetak("=== KALKULATOR SEDERHANA ===")
+    cetak("Pilih operasi: tambah / kurang / kali / bagi")
+
+    operasi = input("Operasi: ")
+    angka1 = ubah_desimal(input("Masukkan angka pertama: "))
+    angka2 = ubah_desimal(input("Masukkan angka kedua: "))
+
+    jika operasi == "tambah":
+        hasil = tambah(angka1, angka2)
+    jika operasi == "kurang":
+        hasil = kurang(angka1, angka2)
+    jika operasi == "kali":
+        hasil = kali(angka1, angka2)
+    jika operasi == "bagi":
+        hasil = bagi(angka1, angka2)
+
+    cetak("Hasil:", hasil)
