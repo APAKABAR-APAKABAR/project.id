@@ -1,0 +1,7 @@
+jika (typeof window !== "tak_ada") {
+    fungsi ubahTeks() {
+        biar elemen = document.getElementById("demo");
+        elemen.innerHTML = "Halo dari Bahasa .id!";
+    }
+    window.onload = ubahTeks;
+}

@@ -1,0 +1,14 @@
+tak_sinkron fungsi ambilData() {
+    coba {
+        biar respons = tunggu ambil("https://api.example.com/data");
+        kembalikan respons;
+    } tangkap (kesalahan) {
+        cetak("Error: " + kesalahan.pesan);
+        kembalikan kosong;
+    }
+}
+tak_sinkron fungsi utama() {
+    biar data = tunggu ambilData();
+    cetak(data);
+}
+utama();
