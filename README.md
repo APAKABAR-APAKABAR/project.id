@@ -64,8 +64,8 @@ Kami membuka kontribusi dari siapa pun:
 ### Jalankan pengembangan lokal
 
 ```bash
-npm install
-node src/cli.js examples/hello.id
+git clone https://github.com/APAKABAR-APAKABAR/project.id
+node project.id/src/cli.js examples/hello.id
 ```
 
 ---
