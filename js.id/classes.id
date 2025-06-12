@@ -1,0 +1,11 @@
+kelas Manusia {
+    fungsi konstruktor(nama, umur) {
+        ini.nama = nama;
+        ini.umur = umur;
+    }
+    fungsi perkenalan() {
+        kembalikan "Saya " + ini.nama + ", umur " + ini.umur + " tahun.";
+    }
+}
+biar budi = baru Manusia("Budi", 25);
+cetak(budi.perkenalan());
