@@ -1,3 +1,6 @@
+## V > 0.1
+---
+
 # 🇮🇩 .id - Bahasa Pemrograman Indonesia
 
 **.id** adalah bahasa pemrograman eksperimental yang menggunakan Bahasa Indonesia sebagai sintaks utama. Dibangun dengan JavaScript (Node.js), `.id` bertujuan untuk membuat pemrograman lebih mudah dipahami oleh penutur bahasa Indonesia.
