@@ -1,0 +1,9 @@
+fungsi sapa(nama) {
+    biar pesan = "Halo, " + nama;
+    jika (nama === "Dunia") {
+        kembalikan pesan + "!";
+    } lain {
+        kembalikan pesan + ", apa kabar?";
+    }
+}
+cetak(sapa("Dunia"));
