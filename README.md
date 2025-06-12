@@ -18,7 +18,15 @@
 ### `hello.id`
 
 ```id
-tulis "Halo Dunia"
+fungsi sapa(nama) {
+    biar pesan = "Halo, " + nama;
+    jika (nama === "Dunia") {
+        kembalikan pesan + "!";
+    } lain {
+        kembalikan pesan + ", apa kabar?";
+    }
+}
+cetak(sapa("Dunia"));
 ```
 
 ---
@@ -26,11 +34,17 @@ tulis "Halo Dunia"
 ### `loops.id`
 
 ```id
-angka = 1
-selama (angka <= 5) {
-  tulis "Angka: " + angka
-  angka = angka + 1
+fungsi hitung() {
+    untuk (biar i = 1; i <= 5; i++) {
+        cetak("Angka: " + i);
+    }
+    biar j = 0;
+    selagi (j < 3) {
+        cetak("Perulangan selagi: " + j);
+        j++;
+    }
 }
+hitung();
 ```
 
 ---
@@ -38,19 +52,20 @@ selama (angka <= 5) {
 ### `async.id`
 
 ```id
-fungsi tunggu(ms) {
-  kembali baru Janji((selesai) => {
-    aturWaktu(() => selesai(), ms)
-  })
+tak_sinkron fungsi ambilData() {
+    coba {
+        biar respons = tunggu ambil("https://api.example.com/data");
+        kembalikan respons;
+    } tangkap (kesalahan) {
+        cetak("Error: " + kesalahan.pesan);
+        kembalikan kosong;
+    }
 }
-
-fungsi utama() {
-  tulis "Mulai"
-  tunggu tunggu(1000)
-  tulis "Selesai setelah 1 detik"
+tak_sinkron fungsi utama() {
+    biar data = tunggu ambilData();
+    cetak(data);
 }
-
-utama()
+utama();
 ```
 
 ---
@@ -58,38 +73,41 @@ utama()
 ### `classes.id`
 
 ```id
-kelas Orang {
-  fungsi __init__(nama) {
-    ini.nama = nama
-  }
-
-  fungsi sapa() {
-    tulis "Halo, saya " + ini.nama
-  }
+kelas Manusia {
+    fungsi konstruktor(nama, umur) {
+        ini.nama = nama;
+        ini.umur = umur;
+    }
+    fungsi perkenalan() {
+        kembalikan "Saya " + ini.nama + ", umur " + ini.umur + " tahun.";
+    }
 }
-
-orang = baru Orang("Budi")
-orang.sapa()
+biar budi = baru Manusia("Budi", 25);
+cetak(budi.perkenalan());
 ```
 
 ---
 
 ### `modules.id`
 
-File: `examples/utils.id`
-```id
-fungsi tambah(a, b) {
-  kembali a + b
+```ekspor fungsi tambah(a, b) {
+    kembalikan a + b;
 }
 
-ekspor tambah
-```
+ekspor kelas Kalkulator {
+    fungsi kali(a, b) {
+        kembalikan a * b;
+    }
+}
 
-File: `examples/modules.id`
-```id
-impor { tambah } dari "./utils.id"
+biar angka = [1, 2, 3, 4];
+biar kuadrat = angka.peta(x => x * x);
+biar genap = angka.saring(x => x % 2 === 0);
+biar jumlah = angka.kurangi((sum, x) => sum + x, 0);
 
-tulis tambah(3, 4)
+cetak(kuadrat); // Output: [1, 4, 9, 16]
+cetak(genap);   // Output: [2, 4]
+cetak(jumlah);  // Output: 10
 ```
 
 ---
@@ -97,17 +115,13 @@ tulis tambah(3, 4)
 ### `web.id`
 
 ```id
-impor http dari "http"
-
-server = http.buatServer((req, res) => {
-  res.statusKode = 200
-  res.setHeader("Content-Type", "text/plain")
-  res.akhir("Halo dari server .id")
-})
-
-server.dengar(3000, () => {
-  tulis "Server berjalan di http://localhost:3000"
-})
+jika (typeof window !== "tak_ada") {
+    fungsi ubahTeks() {
+        biar elemen = document.getElementById("demo");
+        elemen.innerHTML = "Halo dari Bahasa .id!";
+    }
+    window.onload = ubahTeks;
+}
 ```
 
 ---
