@@ -257,7 +257,7 @@ jika nama_utama:
 ```bash
 git clone https://github.com/APAKABAR-APAKABAR/project.id
 cd project.id
-node py/py.py py.id/hello.id
+python3 py/py.py py.id/hello.id
 ```
 
 ---
